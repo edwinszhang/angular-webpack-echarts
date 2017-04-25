@@ -1,2 +1,10 @@
 # angular-webpack-echarts
-Just a demo
+
+
+# Development Step
+
+- Initialize
+- Install dependencies
+- $rootProvider & ng-view
+
+

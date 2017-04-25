@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="zh-CN" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <title>首页</title>
+</head>
+<body>
+<ul id="navBar">
+    <li ng-click="go('/')">首页</li>
+    <li ng-click="go('/hello')">hello</li>
+    <li ng-click="go('/problem')">问题</li>
+    <li ng-click="go('/img')">图片</li>
+    <li ng-click="go('/share')">转载</li>
+    <li ng-click="go('/echart')">其他</li>
+</ul>
+<ng-view> </ng-view>
+</body>
+</html>
