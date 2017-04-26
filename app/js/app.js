@@ -1,7 +1,8 @@
 // define app module
 var app = angular.module('app', [
 	'ngRoute',
-	'indexControllers'
+	'indexControllers',
+	'angular-echarts'
 ]);
 
 app

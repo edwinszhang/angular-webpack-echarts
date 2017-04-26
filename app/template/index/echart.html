@@ -1,5 +1,11 @@
 <div class="main">
   <div ng-controller="echartController">
     Hello! {{firstName + " " + lastName}}!
+
+    <hr>
+
+    <line-chart config="config" data="data"></line-chart>
+    <line-chart config="config" data="multiple"></line-chart>
   </div>
+
 </div>

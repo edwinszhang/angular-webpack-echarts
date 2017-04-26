@@ -23,7 +23,8 @@
   "dependencies": {
     "angular": "^1.6.4",
     "angular-echarts": "^0.3.6",
-    "angular-route": "^1.6.4"
+    "angular-route": "^1.6.4",
+    "echarts": "^3.5.3"
   },
   "devDependencies": {
     "css-loader": "^0.28.0",
