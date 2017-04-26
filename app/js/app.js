@@ -1,7 +1,7 @@
 // define app module
 var app = angular.module('app', [
 	'ngRoute',
-	'controllers'
+	'indexControllers'
 ]);
 
 app

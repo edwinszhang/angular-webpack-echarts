@@ -1,0 +1,32 @@
+<div class="main">
+  <!-- 01 scope and expression -->
+  <div ng-controller="expressionController">
+    Hello! {{firstName + " " + lastName}}!
+  </div>
+  <hr>
+  <!-- 02 ng-repeat demo -->
+  <ul>
+    <li ng-repeat="book in books">
+      Book => {{book.title}} &nbsp;&nbsp;&nbsp;
+      Author => {{book.author}}&nbsp;&nbsp;&nbsp;
+      Price => ￥{{book.price}}
+    </li>
+  </ul>
+  <p>Total Price: ￥{{ getTotalPrice() }}</p>
+  <p>The <b>ng-repeat</b> directive actually clones HTML elements once for each item in a collection.</p>
+  <hr>
+  <!-- 03 ng-bind demo -->
+  <p>
+    <label>First Name: <input type="text" ng-model="firstName"></label><br>
+    <label>Last Name: <input type="text" ng-model="lastName"></label><br>
+    <span ng-bind="firstName + ' '+ lastName"></span><br>
+    Hi, <span ng-bind="lastName"></span>. The <b>ng-model</b> directive binds the value of HTML controls (input, select, textarea) to application data.
+  </p>
+  <hr>
+  <!-- 04 ng-init demo -->
+  <div ng-init="points=[1,2,3,4]">
+    <p>The third result is {{points[2]}}</p>
+  </div>
+  <hr>
+
+</div>
