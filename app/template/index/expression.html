@@ -1,4 +1,5 @@
 <div class="main">
+  {{lastName}}
   <!-- 01 scope and expression -->
   <div ng-controller="expressionController">
     Hello! {{firstName + " " + lastName}}!
@@ -27,6 +28,21 @@
   <div ng-init="points=[1,2,3,4]">
     <p>The third result is {{points[2]}}</p>
   </div>
+  <hr>
+  <!-- 04 ng-show demo -->
+  <form name="myForm">
+    Email:
+    <input type="email" name="eAddress" ng-model="email">
+    <span ng-show="myForm.eAddress.$error.email">非法邮箱</span><br>
+    User Name:
+    <input type="text" name="uName" ng-model="username" required><br>
+    状态列表:
+    <ul>
+      <li ng-repeat="status in ngModelStatus">
+        {{status}}
+      </li>
+    </ul>
+  </form>
   <hr>
 
 </div>

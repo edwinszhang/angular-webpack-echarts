@@ -1,0 +1,28 @@
+<div class="main">
+  <h1>Service Page</h1>
+  <div ng-controller="serviceController">
+
+    <p>location => {{pageUrl}}</p>
+    <hr>
+
+    <!--<p>UserInfo from $http => {{bingResponse}}</p>-->
+
+    <ul>
+      <li ng-repeat="image in bingResponse.images">
+        <img class="small-img" src="{{'http://cn.bing.com/' + image.url}}">
+        <br>
+        <p>{{image.copyright}}</p>
+      </li>
+    </ul>
+
+    <hr>
+
+    <h1>Calculator:</h1>
+    <label><input type="text" ng-model="numX"></label><br>
+    <label><input typ="text" ng-model="numY"></label><br>
+
+    Result => <span ng-bind="getResult()"></span>
+
+    <hr>
+  </div>
+</div>

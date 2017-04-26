@@ -22,8 +22,16 @@ app
         template: require('../../template/index/directive.html'),
         controller: 'directiveController'
       })
+      .when('/filter', {
+        template: require('../../template/index/filter.html'),
+        controller: 'filterController'
+      })
+      .when('/service', {
+        template: require('../../template/index/service.html'),
+        controller: 'serviceController'
+      })
       .otherwise({
-        template: require('../../template/index.html'),
+        template: require('../../template/index/default.html'),
         controller: 'indexController'
       })
   }]);

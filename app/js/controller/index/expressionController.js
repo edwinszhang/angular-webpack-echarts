@@ -1,14 +1,15 @@
 var controllers = require('../indexModule');
 
 // expression lesson
-controllers.controller('expressionController', ['$scope', function ($scope) {
+controllers.controller('expressionController', ['$scope', '$rootScope', function ($scope, $rootScope) {
   $scope.firstName = 'Shuai';
   $scope.lastName = 'Zhang';
+  $rootScope.lastName = "Hakura";
 
   $scope.books = [
-    {title: 'Book1', author: 'Zhang San', price: 25.00},
-    {title: 'Book2', author: 'Li Si', price: 30.00},
-    {title: 'Book3', author: 'Wang wu', price: 48.00}
+  {title: 'Book1', author: 'Zhang San', price: 25.00},
+  {title: 'Book2', author: 'Li Si', price: 30.00},
+  {title: 'Book3', author: 'Wang wu', price: 48.00}
   ];
 
   $scope.getTotalPrice = function(){
@@ -18,5 +19,18 @@ controllers.controller('expressionController', ['$scope', function ($scope) {
       total += (book.price);
     }
     return total;
-  }
+  };
+
+  $scope.ngModelStatus = [
+  'ng-empty',
+  'ng-not-empty',
+  'ng-touched',
+  'ng-untouched',
+  'ng-valid',
+  'ng-invalid',
+  'ng-dirty',
+  'ng-pending',
+  'ng-pristine'
+  ];
+
 }]);

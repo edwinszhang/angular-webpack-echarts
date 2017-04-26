@@ -46,7 +46,11 @@ module.exports = {
 			{
 				test: /\.(png|jpg)$/,
 				loader: 'url?limit=40000' // 当你图片大小小于这个限制的时候，会自动启用 base64 编码图片。
-			}
+			},
+      {
+        test: /\.json$/,
+        use: 'json-loader'
+      }
 		]
 	},
 	devServer: {
