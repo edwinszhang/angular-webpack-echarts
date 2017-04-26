@@ -1,7 +1,7 @@
-// all config
+// modules
 require('./indexModule');
 
-// collect all controllers
+// controllers
 require('./index/defaultController');
 require('./index/expressionController');
 require('./index/directiveController');

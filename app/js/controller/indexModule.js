@@ -11,15 +11,15 @@ app
     // put your config here
     $routeProvider
       .when('/expression', {
-        template: require('../../template/expression.html'),
+        template: require('../../template/index/expression.html'),
         controller: 'expressionController'
       })
       .when('/echart', {
-        template: require('../../template/echart.html'),
+        template: require('../../template/index/echart.html'),
         controller: 'echartController'
       })
       .when('/directive', {
-        template: require('../../template/directive.html'),
+        template: require('../../template/index/directive.html'),
         controller: 'directiveController'
       })
       .otherwise({
