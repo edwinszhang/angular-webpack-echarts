@@ -1,39 +1,37 @@
 /**
  * Created by edwin on 2017/4/25.
  */
-var app = require('../app');
+var echarts = require('../echarts');
 
-var indexControllers = angular.module('indexControllers', []);
+var echartControllers = angular.module('echartControllers', ['ngAnimate']);
+
 
 // route
-app
+echarts
   .config(["$routeProvider", function ($routeProvider) {
-    // put your config here
     $routeProvider
       .when('/expression', {
-        template: require('../../template/index/expression.html'),
+        template: require('../../template/echarts/expression.html'),
         controller: 'expressionController'
       })
       .when('/echart', {
-        template: require('../../template/index/echart.html'),
+        template: require('../../template/echarts/echarts.html'),
         controller: 'echartController'
       })
-      .when('/directive', {
-        template: require('../../template/index/directive.html'),
-        controller: 'directiveController'
-      })
-      .when('/filter', {
-        template: require('../../template/index/filter.html'),
-        controller: 'filterController'
-      })
-      .when('/service', {
-        template: require('../../template/index/service.html'),
-        controller: 'serviceController'
+      .when('/line', {
+        template: require('../../template/echarts/line.html'),
+        controller: 'lineController'
       })
       .otherwise({
-        template: require('../../template/index/default.html'),
+        template: require('../../template/echarts/default.html'),
         controller: 'indexController'
       })
   }]);
 
-module.exports = indexControllers;
+
+echartControllers.controller('indexController', ['$scope', function ($scope) {
+  $scope.firstName = 'Jetty';
+  $scope.lastName = 'Tomson';
+}]);
+
+module.exports = echartControllers;

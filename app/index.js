@@ -2,17 +2,12 @@
 // #### lib ##########
 require('angular');
 require('angular-route');
+require('angular-animate');
 
 // #### js ##########
-require('./js/app.js');
+require('./js/echarts.js');
 // controllers
-require('./js/controller/config');
-// directives
-require('./js/directive/config');
-// filters
-require('./js/filter/config');
-// services
-require('./js/service/config');
+require('./js/controller/controllers.config.js');
 // #### scss ##########
 require('./css/main.scss');
 // #### json ##########

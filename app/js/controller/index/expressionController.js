@@ -22,15 +22,15 @@ controllers.controller('expressionController', ['$scope', '$rootScope', function
   };
 
   $scope.ngModelStatus = [
-  'ng-empty',
-  'ng-not-empty',
-  'ng-touched',
-  'ng-untouched',
-  'ng-valid',
-  'ng-invalid',
-  'ng-dirty',
-  'ng-pending',
-  'ng-pristine'
+    'ng-empty',
+    'ng-not-empty',
+    'ng-touched',
+    'ng-untouched',
+    'ng-valid',
+    'ng-invalid',
+    'ng-dirty',
+    'ng-pending',
+    'ng-pristine'
   ];
 
 }]);

@@ -1,20 +1,21 @@
 // define app module
-var app = angular.module('app', [
+var echarts = angular.module('echarts', [
 	'ngRoute',
-	'indexControllers'
+	'ngAnimate',
+	'echartControllers'
 ]);
 
-app
+echarts
 	.config(["$routeProvider", function ($routeProvider) {
 		// put your config here
 
 	}]);
 
-app.run(["$location","$rootScope",function($location,$rootScope){
+echarts.run(["$location","$rootScope",function($location,$rootScope){
 
 	$rootScope.go = function ( path ) {
 		$location.path( path );
 	};
 }]);
 
-module.exports = app;
+module.exports = echarts;
