@@ -3,6 +3,7 @@
 require('angular');
 require('angular-route');
 require('angular-animate');
+// require('echarts');
 
 // #### js ##########
 require('./js/echarts.js');

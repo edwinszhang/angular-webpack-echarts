@@ -7,3 +7,4 @@ require('./index/echartsController');
 
 require('./echarts/line/lineController.js');
 require('./echarts/map/mapController.js');
+require('./echarts/bar/barController.js');
