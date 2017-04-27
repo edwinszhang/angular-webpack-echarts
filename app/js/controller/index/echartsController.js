@@ -1,52 +1,69 @@
 var controllers = require('../indexModule');
 
+var echarts = require('echarts');
+
 // echarts integration
 controllers.controller('echartController', ['$scope', function ($scope) {
   $scope.firstName = 'John';
   $scope.lastName = 'Snow';
 
-  var pageload = {
-    name: 'page.load',
-    datapoints: [
-      { x: 2001, y: 1012 },
-      { x: 2002, y: 1023 },
-      { x: 2003, y: 1045 },
-      { x: 2004, y: 1062 },
-      { x: 2005, y: 1032 },
-      { x: 2006, y: 1040 },
-      { x: 2007, y: 1023 },
-      { x: 2008, y: 1090 },
-      { x: 2009, y: 1012 },
-      { x: 2010, y: 1012 },
-    ]
-  };
-
-  var firstPaint = {
-    name: 'page.firstPaint',
-    datapoints: [
-      { x: 2001, y: 22 },
-      { x: 2002, y: 13 },
-      { x: 2003, y: 35 },
-      { x: 2004, y: 52 },
-      { x: 2005, y: 32 },
-      { x: 2006, y: 40 },
-      { x: 2007, y: 63 },
-      { x: 2008, y: 80 },
-      { x: 2009, y: 20 },
-      { x: 2010, y: 25 },
-    ]
-  };
-
-  $scope.config = {
-    title: 'Line Chart',
-    subtitle: 'Line Chart Subtitle',
-    debug: true,
-    showXAxis: true,
-    showYAxis: true,
-    showLegend: true,
-    stack: false,
-  };
-
-  $scope.data = [ pageload ];
-  $scope.multiple = [pageload, firstPaint ];
+  $scope.legend = ["Berlin", "London",'New York','Tokyo'];
+  $scope.item = ['Jan', 'Feb', 'Mar', 'Apr', 'Mar', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  $scope.data = [
+    [-1, 1, 3, 7, 13, 16, 18, 16, 15, 9, 4, 2],	//Berlin
+    [0, 1, 4, 7, 12, 15, 16, 15, 15, 10, 6, 5],	//London
+    [4, 4, 5, 10, 16, 22, 25, 24, 20, 14, 9, 3],	//New York
+    [7, 6, 8, 14, 17, 22, 25, 27, 24, 17, 14, 10]	//Tokyo
+  ];
 }]);
+
+controllers.directive('line', function() {
+  return {
+    scope: {
+      id: "@",
+      legend: "=",
+      item: "=",
+      data: "="
+    },
+    restrict: 'E',
+    template: '<div style="height:400px;"></div>',
+    replace: true,
+    link: function($scope, element, attrs, controller) {
+      var option = {
+        // 提示框，鼠标悬浮交互时的信息提示
+        tooltip: {
+          show: true,
+          trigger: 'item'
+        },
+        // 图例
+        legend: {
+          data: $scope.legend
+        },
+        // 横轴坐标轴
+        xAxis: [{
+          type: 'category',
+          data: $scope.item
+        }],
+        // 纵轴坐标轴
+        yAxis: [{
+          type: 'value'
+        }],
+        // 数据内容数组
+        series: function(){
+          var serie=[];
+          for(var i=0;i<$scope.legend.length;i++){
+            var item = {
+              name : $scope.legend[i],
+              type: 'line',
+              data: $scope.data[i]
+            };
+            serie.push(item);
+          }
+          return serie;
+        }()
+      };
+      var myChart = echarts.init(document.getElementById($scope.id),'macarons');
+      myChart.setOption(option);
+    }
+  };
+});
