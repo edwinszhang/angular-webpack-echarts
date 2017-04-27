@@ -24,9 +24,9 @@ app.controller('barCtrl', function ($scope, $http) {
     }]
   };
   $scope.option = option;
-  $http.get('/app/mock/bar.json').then(function (result) {
-    $scope.option = result.data;
-  });
+  // $http.get('/app/mock/bar.json').then(function (result) {
+  //   $scope.option = result.data;
+  // });
 
 });
 
