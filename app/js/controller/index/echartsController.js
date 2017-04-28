@@ -29,6 +29,10 @@ controllers.controller('echartController', ['$scope', function ($scope) {
       url: TEMPLATE_PATH + '/map2.html'
     },
     {
+      name: 'map3',
+      url: TEMPLATE_PATH + '/map3.html'
+    },
+    {
       name: 'donut',
       url: TEMPLATE_PATH + '/donut.html'
     },

@@ -404,7 +404,20 @@ var convertData = function (data) {
   return res;
 };
 
-app.controller('mapCtrl', function ($scope, $http) {
+// var filterValue = function (address) {
+//   return address.value >= 300;
+//
+// }
+
+app.controller('mapCtrl3', ['$scope', function ($scope) {
+
+  $scope.max = 9999;
+  $scope.min = 0;
+
+  // data.filter(filterValue());
+
+
+
 
   var option = {
     backgroundColor: '#404a59',
@@ -507,13 +520,15 @@ app.controller('mapCtrl', function ($scope, $http) {
   };
   $scope.option = option;
 
-});
+}]);
 
-app.directive('map', function() {
+app.directive('map3', function() {
   return {
     scope: {
       id: "@",
-      option: "="
+      option: "=",
+      max: '@',
+      min: '@'
     },
     restrict: 'E',
     template: '<div style="height:800px;"></div>',
@@ -521,7 +536,23 @@ app.directive('map', function() {
     link: function($scope, element, attrs, controller) {
       var option = option;
       var myChart = echarts.init(document.getElementById($scope.id),'macarons');
+
       myChart.setOption($scope.option);
+      $scope.$watch('max',function(newValue,oldValue, scope){
+        // data.filter(filterValue());
+        console.log(data.length);
+        myChart.resize();
+      });
+
+      $scope.$watch('min',function(newValue,oldValue, scope){
+        data = data.filter(function (element) {
+          return element.value < 100;
+        });
+        console.log(data.length);
+        console.log(data[0].value);
+        myChart.resize();
+      });
+
     }
   };
 });

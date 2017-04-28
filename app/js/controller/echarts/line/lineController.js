@@ -5,9 +5,9 @@ var app = require('../../indexModule.js');
 var echarts = require('echarts');
 
 app.controller('lineCtrl', function ($scope) {
-  $scope.legend = ["Berlin", "London",'New York','Tokyo'];
-  $scope.item = ['Jan', 'Feb', 'Mar', 'Apr', 'Mar', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-  $scope.data = [
+  $scope.l = ["Berlin", "London",'New York','Tokyo'];
+  $scope.i = ['Jan', 'Feb', 'Mar', 'Apr', 'Mar', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  $scope.d = [
     [-1, 1, 3, 7, 13, 16, 18, 16, 15, 9, 4, 2],	//Berlin
     [0, 1, 4, 7, 12, 15, 16, 15, 15, 10, 6, 5],	//London
     [4, 4, 5, 10, 16, 22, 25, 24, 20, 14, 9, 3],	//New York
